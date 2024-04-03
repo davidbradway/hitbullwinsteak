@@ -51,9 +51,9 @@ iswin = outcome == 'W'
 
 # if new date posted,
 if old_dt != dt:
-    print('Score:', score, ', is win:', iswin, ', Date:', dt)
-
     # save a list to a pickle file
     with open('score.pkl', 'wb') as f:
         my_tuple = (dt, iswin, score)
         pickle.dump(my_tuple, f)
+
+print('Score:', score, ', is win:', iswin, ', Date:', dt)
