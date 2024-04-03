@@ -19,7 +19,7 @@ page = requests.get(url)
 soup = BeautifulSoup(page.content, 'html.parser')
 
 # find the table
-table = soup.find('table', class_='table table-sm')
+table = soup.find_all('table', class_='table table-sm')[-1]
 
 # find the first row
 row = table.find('tr')
@@ -51,7 +51,7 @@ iswin = outcome == 'W'
 
 # if new date posted,
 if old_dt != dt:
-    print('Score:', score, 'is win:', iswin, 'Date:', dt)
+    print('Score:', score, ', is win:', iswin, ', Date:', dt)
 
     # save a list to a pickle file
     with open('score.pkl', 'wb') as f:
